@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 import google.generativeai as genia
 
+import os
+API_KEY = os.getenv("API_KEY")
+
+if API_KEY is None:
+    raise ValueError("API_KEY environment variable not set.")
+
 app = Flask(__name__)
 
 API_KEY = "AIzaSyBRJovh1LGCsLN2pH_RYcwWu2itj53UyE8"
